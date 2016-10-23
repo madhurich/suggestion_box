@@ -1,0 +1,33 @@
+body {
+  color: #cccccc;
+  background-color: #262626;
+  max-height: 100%;
+  max-width: 100%; }
+
+.glyphicon {
+  cursor: pointer; }
+
+.home {
+  margin-top: 25px; }
+  .home .row_style {
+    border: 1px solid #cccccc;
+    border-radius: 7px;
+    border-color: #ff9999; }
+    .home .row_style .glyphicon-plus-sign {
+      color: #77ff33; }
+    .home .row_style .glyphicon-minus-sign {
+      color: #ff1a1a; }
+    .home .row_style .glyphicon-comment {
+      color: #99b3ff; }
+    .home .row_style a:hover {
+      text-decoration: none;
+      color: #ff99ff; }
+    .home .row_style h3 {
+      color: #ffff99; }
+    .home .row_style h4 {
+      color: #ff99ff; }
+
+.submit {
+  margin-top: -50px; }
+
+/*# sourceMappingURL=style.css.map */

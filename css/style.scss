@@ -1,0 +1,47 @@
+$white:  #cccccc;
+$black:  #262626;
+$green:  #77ff33;
+$red: #ff1a1a;
+$comment: #99b3ff;
+$commenthover: #ff99ff;
+
+body{
+	color: $white;
+	background-color: $black;
+	max-height: 100%;
+	max-width: 100%;
+} 
+
+.glyphicon{
+	cursor: pointer;
+}
+.home{
+	margin-top: 25px;
+	.row_style{
+	border: 1px solid $white;
+	border-radius: 7px;
+	border-color: #ff9999;
+	.glyphicon-plus-sign{
+		color: $green;
+	}
+	.glyphicon-minus-sign{
+		color: $red;
+	}
+	.glyphicon-comment{
+		color: $comment;
+	}
+	a:hover{
+		text-decoration: none;
+		color: $commenthover;
+	}
+	h3{
+		color: #ffff99;
+	}
+	h4{
+		color: $commenthover;
+	}
+}
+}
+.submit{
+	margin-top: -50px;
+}

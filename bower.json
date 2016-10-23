@@ -1,0 +1,20 @@
+{
+  "name": "suggestion_box",
+  "homepage": "https://github.com/madhurich/myjqueryprojects",
+  "authors": [
+    "madhurich <madhurich23@gmail.com>"
+  ],
+  "description": "to use emojis in comments",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "emojify.js": "^1.1.0"
+  }
+}
