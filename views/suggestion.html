@@ -2,12 +2,12 @@
   <div class="row">
     <div class="col-lg-2"></div>
       <div class="col-lg-8 row_style">
-        <h3>{{sc.posts.title}}</h3>
-          <div ng-repeat="comment in sc.posts.comments">
-            <h4>{{comment.body}}</h4>
+        <h3>{{posts.title}}</h3>
+          <div ng-repeat="x in posts.comments">
+            <h4>{{x.body}}</h4>
             <h6>
-              <p><span class="glyphicon glyphicon-plus-sign" ng-click="sc.upVote($index)"></span> Upvotes: {{comment.upvotes}}</p> 
-              <p><span class="glyphicon glyphicon-minus-sign" ng-click="sc.downVote($index)"></span> Downvotes: {{comment.downvotes}}</p>
+              <p><span class="glyphicon glyphicon-plus-sign" ng-click="upVote($index)"></span> Upvotes: {{x.upvotes}}</p> 
+              <p><span class="glyphicon glyphicon-minus-sign" ng-click="downVote($index)"></span> Downvotes: {{x.downvotes}}</p>
             </h6> 
           </div>
       </div>
@@ -18,12 +18,12 @@
 <div class="row submit">
       <div class="col-sm-3"></div>
       <div class="col-sm-6">
-          <form ng-submit="sc.addComment()">
+          <form ng-submit="addComment()">
             <h3> Leave your comment </h3>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your opinion" ng-model="sc.body"></input>
+                <input type="text" class="form-control" placeholder="Your opinion" ng-model="body"></input>
             </div>
-            <button type="submit" class="btn btn-primary" ng-submit="sc.addComment()">Comment</button>
+            <button type="submit" class="btn btn-primary" ng-submit="addComment()">Comment</button>
             <a class="btn btn-primary" href="#/Home">Back</a>
           </form>
       </div>

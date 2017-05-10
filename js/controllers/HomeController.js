@@ -1,41 +1,31 @@
-(function(){
-    angular.module('SuggestionBox')
-        .controller('HomeController',  homeCtrlFunc);
+app.controller('HomeController', ['$scope','suggestions', function($scope, suggestions) {
+$scope.helloWorld = "Hello, AngularJS!";
+$scope.posts = suggestions.posts;
 
-homeCtrlFunc.$inject = ['$scope', 'suggestions'];
-    
-function homeCtrlFunc($scope, suggestions) {
-    var vm = this;
-    vm.helloWorld = "Hello, AngularJS!";
-    vm.posts = suggestions.posts;
+$scope.addSuggestion = function() {
+     
+    //if input empty, don't submit
+    if(!$scope.title || $scope.title === "") {
+    return;
+    }
+     
+    //push suggestion posts in suggestions.js
+    $scope.posts.push({
+    title: $scope.title,
+    upvotes: 0,
+    comments: [],
+    id: $scope.posts.length + 1,
+    });
+     
+    //after submit, clear input
+    $scope.title = '';
+    };
+$scope.upVote = function(index) {
+	$scope.posts[index].upvotes += 1;
+};
+$scope.downVote = function(index) {
+	$scope.posts[index].downvotes -= 1;
+};
 
-    vm.addSuggestion = function() {
-         
-        //if input empty, don't submit
-        if(!vm.title || vm.title === "") {
-            return;
-        }
-         
-        //push suggestion posts in suggestions.js
-        vm.posts.push({
-            title: vm.title,
-            upvotes: 0,
-            comments: [],
-            id: vm.posts.length + 1,
-        });
-         
-        //after submit, clear input
-            vm.title = '';
-        };
-        vm.upVote = function(index) {
-            vm.posts[index].upvotes += 1;
-        };
-        vm.downVote = function(index) {
-            vm.posts[index].downvotes -= 1;
-        };
-
-}
-
-
-})();
+}]);
 

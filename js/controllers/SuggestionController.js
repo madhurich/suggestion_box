@@ -1,29 +1,23 @@
-(function(){
-  angular.module('SuggestionBox')
-        .controller('SuggestionController', suggestCtrlFunc);
+app.controller('SuggestionController', ['$scope','$routeParams','suggestions',
+  function($scope, $routeParams, suggestions) {
+    // $scope.post = suggestions.posts[$routeParams.id];
+   $scope.posts = suggestions.posts[$routeParams.id];
 
-  suggestCtrlFunc.$inject = ['$scope','$routeParams','suggestions'];
+    $scope.addComment = function() {
+     var newcomment = $scope.posts;
+      newcomment.comments.push({
+      body: $scope.body,
+      upvotes: 0
+      });
+      $scope.body = '';
+    };
 
-  function suggestCtrlFunc($scope, $routeParams, suggestions){
-    var vm = this;
-      // $scope.post = suggestions.posts[$routeParams.id];
-     vm.posts = suggestions.posts[$routeParams.id];
-
-      vm.addComment = function() {
-       var newcomment = vm.posts;
-        newcomment.comments.push({
-        body: vm.body,
-        upvotes: 0
-        });
-        vm.body = '';
-      };
-
-      vm.upVote = function(index) {
-    vm.posts.comments[index].upvotes += 1;
-  };
-  vm.downVote = function(index) {
-    vm.posts.comments[index].downvotes -= 1;
-  };
+    $scope.upVote = function(index) {
+  $scope.posts.comments[index].upvotes += 1;
+};
+$scope.downVote = function(index) {
+  $scope.posts.comments[index].downvotes -= 1;
+};
   }
-})();
 
+  ]);

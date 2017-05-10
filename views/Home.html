@@ -2,16 +2,16 @@
 <!-- <h1> {{ helloWorld }} </h1> -->
 <div class="container home">
 <h1 style="text-align: center">Suggestion Box</h1>
-  <div class="row" ng-repeat="post in hc.posts | orderBy : 'upvotes' : true">
+  <div class="row" ng-repeat="x in posts | orderBy : 'upvotes' : true">
     <div class="col-sm-3"></div>
       <div class="col-sm-6 row_style">
-        <h3>{{post.title}}</h3>
+        <h3>{{x.title}}</h3>
         <h6>
-        <p><span class="glyphicon glyphicon-plus-sign" ng-click="hc.upVote($index)"></span> Upvotes: {{post.upvotes}}</p> 
+        <p><span class="glyphicon glyphicon-plus-sign" ng-click="upVote($index)"></span> Upvotes: {{x.upvotes}}</p> 
         <p>
-        <span class="glyphicon glyphicon-minus-sign" ng-click="hc.downVote($index)"></span> Downvotes: {{post.downvotes}}
+        <span class="glyphicon glyphicon-minus-sign" ng-click="downVote($index)"></span> Downvotes: {{x.downvotes}}
         </p>
-        <p><a ng-href="#/suggestion/{{post.id-1}}"><span class="glyphicon glyphicon-comment"></span> comments</a></p>
+        <p><a ng-href="#/suggestion/{{x.id-1}}"><span class="glyphicon glyphicon-comment"></span> comments</a></p>
         </h6>
       </div>
     <div class="col-sm-3"></div>
@@ -21,16 +21,16 @@
   <div class="row submit">
       <div class="col-sm-4"></div>
       <div class="col-sm-4">
-          <form ng-submit="hc.addSuggestion()">
+          <form ng-submit="addSuggestion()">
             <h4> Submit Your Suggestion </h4>
             <div class="row">
               <div class="col-sm-8">
                  <div class="form-group">
-                <input type="text" class="form-control" placeholder="Great ideas here" ng-model="hc.title"></input>
+                <input type="text" class="form-control" placeholder="Great ideas here" ng-model="title"></input>
                  </div>
               </div>
               <div class="col-sm-4">
-                <button type="submit" class="btn btn-primary" ng-submit="hc.addSuggestion()">Suggest</button>
+                <button type="submit" class="btn btn-primary" ng-submit="addSuggestion()">Suggest</button>
               </div>
             </div>
           </form>
