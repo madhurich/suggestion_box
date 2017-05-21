@@ -1,0 +1,24 @@
+{
+  "name": "suggestion_box",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.15.3",
+    "node-emoji": "^1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madhurich/suggestion_box.git"
+  },
+  "author": "Madhuri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/madhurich/suggestion_box/issues"
+  },
+  "homepage": "https://github.com/madhurich/suggestion_box#readme"
+}
