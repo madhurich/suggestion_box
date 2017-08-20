@@ -1,0 +1,103 @@
+> create a folder called 'protractor'
+> within that e2e -> spec.js 
+> within protractor -> conf.js file
+> exports.config = {
+    seleniumAddress: ''http://localhost:4444/wd/hub',
+    spec: ['path to spec files']; // ['./e2e/app.spec.js']
+}; 
+> The default address is 4444 where selenium is running.
+> After writing the test file to run the tests
+> within project folder
+> protractor patTOConfigFile
+    protractor protractor/conf.js
+> before running protractor, make sure that your app server is running (on port 3000 here) 
+    run
+        node index.js 
+            wihtin your project folder
+> start the webdriver-manager
+    webdriver-manager start
+--------------
+app.spec.js
+
+describe('testing index page', function(){
+    describe('title of index page', function(){
+        it('should have title', function(){
+            browser.get('http://localhost:3000');//we need to get the page where we 
+            //are landing
+            expect(browser.getTitle()).toBe('Suggestion Box');
+
+            describe('home page', function(){
+                var comment = element.all(by.css('.glyphicon-comment')).first();
+                    //this will get the first comment element in the page
+                var firstTitle = element.all(by.binding('title')).first();
+                    //this is the first title element
+                var titleInFirstPage;
+
+                //generally below, the getText() returns a promise and we are providing a
+                //callback to grab the text withint he element.
+                // firstTitle.getText().then(function(title){
+                //     titleInFirstPage = title;
+                // }); //if you check with titleInFirstPage its not working
+                //if you check with firstTitle then it worked.
+
+                //now when the comment element is clicked
+                comment.click();
+
+                browser.waitForAngular();
+                    //we are waiting for angular to finish loading the page after the comment is clicked.
+                    //this was not written when we were doing browser.get() above, because, here its a 'get'
+                    //mehtod and protractor knows to wait untill the response is ready, but here its a click
+                    //not a 'get' where protractor by default it doenst know what happens, that is the reason
+                    //we are waiting for angular after the click
+                var titleInPage = element(by.binding('title'));
+                expect(titleInPage.getText()).toBe(firstTitle.getText());
+            }); 
+        });      
+    });   
+});   
+-----
+REFER http://www.protractortest.org/#/locators
+for element slectors.
+REFER https://stackoverflow.com/questions/29129186/how-to-use-browser-getcurrenturl-in-a-protractor-test
+for browser.getcurrenturl
+
+If you observe, when the protractor test cases runs, it shows dots in the command line
+the number of dots determines the number of 'it' blocks i.e the specs you have written. 
+--
+> In our spec file, we have loaded the page before each of the 'it' block and got the
+first comment element.
+> When you carefully observe while protractor is running, after the comment is clicked the first 'it'
+block runs
+> then again it goes back to the main page ('localhost:3000/')
+> and again navigates to Suggestions page and goes back to main page.
+-------
+locators
+element(by.css('.className'))
+element(by.id('idName'))
+element(by.binding('name'))
+element(by.model('modelNAme'))
+element(by.name('value of the property 'name'));
+element(by.repeater('x in users'))
+element(by.options('p for p in operators'))
+element(by.tagName('p'))
+Xpath
+addLocators
+-----------
+now we have defiend our test specs, and all runs successfully, but it takes some time
+sy Ex: in our case 5 seconds.
+> But if we have larger application it takes longer time, so to avoid long running and ending up
+with nothing, we divide our test files with suites in config file
+exports.config = {
+    specs: ['./e2e/**/*.js'] 
+    suites: {
+        smoke: './e2e/smoke/**/*.spec.js',
+        full: './e2e/**/*.spec.js',
+        other: './e2e/**/long.running.spec.js'
+    }
+};
+> Now to tell protractor whihc kind of specs you need to run
+protractor suite=smoke
+    -- if you want to run only spec files whih are under 'smoke' folder
+
+protractor conf.js --suite=smoke,other
+    different suites can be seperated by commas and can be tested
