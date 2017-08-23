@@ -101,3 +101,64 @@ protractor suite=smoke
 
 protractor conf.js --suite=smoke,other
     different suites can be seperated by commas and can be tested
+--------------------------
+TO INSTALL JAVA ON WINDOWS 
+> Head on to http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+> click accept agrrement -> choose windows 64 bit the last option available
+> download and install it on your machine
+> after successfull installation
+> to check if its installed
+> open command prompt
+> run 
+    javac
+     //javac means java compiler
+> If it gives you bash command not found, then you need to set environment variable
+> For that first head on to
+    C:\Program Files\Java
+> You can see two folders jdk..some version and jre..some version
+> Go to 
+    Control Panel\System and Security\System -> advanced system settings 
+> a window opens with advanced tab opened, 
+> go to environment variables at  the bottom
+> wihtin system variables in the second panel wihtin environment varibales
+    window, select -> path -> Edit -> in the next window click Edit text
+> Now wihtih the existing text, put a semicolon
+> Copy the jdk folder path  
+    C:\Program Files\Java\jdk1.8.0_131
+> and paste it after the semicolon
+> after pasting put a semi colon again
+> now copy jre path 
+    C:\Program Files\Java\jre1.8.0_131
+> paste it after the second semicolon you put
+> click ok -> ok -> ok till all the windows goes away.
+> now open the terminal
+> run 
+    javac
+> it gives you list of commands, now java is installed with java compiler
+
+TO INSTALL JAVA ON MAC
+> head on to http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+> accept the license, click on MAC OSX the .dmg file 
+> run and install it on MAC
+> After it gives the succesfull installation message
+> close it
+> top left apple symbol -> system preferences -> 
+> at the bottom you can see java icon
+> click on it Java control panel opens up
+> within that click on java tab -> view
+> you can see that java is installed in that specific location
+> now open the terminal , top right corner search for terminal open it
+> run javac or javac -version if it gives nothing then java compiler is not installed
+> Now you need to set the JAVA HOME environment variable for it
+> go to terminal -> wihtin home directory (cd ~/)
+> run 
+    echo $JAVA_HOME
+> if it gives nothing then you need to set the environment varibale
+> touch .bash_profile
+    creates afile named .bash_profile
+> run  
+    open -e .bash_profile
+> opens the file in edit mode, copy and paste these in that file -> export JAVA_HOME=$(/usr/libexec/java_home)
+> save and close, open a new terminal 
+    run -> echo $JAVA_HOME
+    now you can see the location of environment variable is set and java jdk and jre is installed with home, env variable
