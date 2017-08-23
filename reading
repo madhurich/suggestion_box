@@ -103,6 +103,7 @@ protractor conf.js --suite=smoke,other
     different suites can be seperated by commas and can be tested
 --------------------------
 TO INSTALL JAVA ON WINDOWS 
+REFER https://www.youtube.com/watch?v=Wp6uS7CmivE
 > Head on to http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 > click accept agrrement -> choose windows 64 bit the last option available
 > download and install it on your machine
@@ -137,6 +138,7 @@ TO INSTALL JAVA ON WINDOWS
 > it gives you list of commands, now java is installed with java compiler
 
 TO INSTALL JAVA ON MAC
+REFER https://www.youtube.com/watch?v=y6szNJ4rMZ0
 > head on to http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 > accept the license, click on MAC OSX the .dmg file 
 > run and install it on MAC
